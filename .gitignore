@@ -8,9 +8,12 @@
 *.sln.docstates
 
 # Archivos de construcción de Visual Studio
-bin/
-obj/
-out/
+ToDoList.Web/bin/
+ToDoList.Web/obj/
+ToDoList.Web/out/
+ToDoList.Data/bin/
+ToDoList.Data/obj/
+ToDoList.Data/out/
 
 # Archivos generados por paquetes NuGet
 *.nupkg
