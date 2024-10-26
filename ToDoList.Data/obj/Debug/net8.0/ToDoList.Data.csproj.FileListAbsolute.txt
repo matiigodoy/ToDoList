@@ -1,0 +1,15 @@
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\bin\Debug\net8.0\ToDoList.Data.deps.json
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\bin\Debug\net8.0\ToDoList.Data.runtimeconfig.json
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\bin\Debug\net8.0\ToDoList.Data.dll
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\bin\Debug\net8.0\ToDoList.Data.pdb
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\obj\Debug\net8.0\ToDoList.Data.csproj.AssemblyReference.cache
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\obj\Debug\net8.0\ToDoList.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\obj\Debug\net8.0\ToDoList.Data.AssemblyInfoInputs.cache
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\obj\Debug\net8.0\ToDoList.Data.AssemblyInfo.cs
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\obj\Debug\net8.0\ToDoList.Data.csproj.CoreCompileInputs.cache
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\obj\Debug\net8.0\ToDoList.Data.sourcelink.json
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\obj\Debug\net8.0\ToDoList.Data.dll
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\obj\Debug\net8.0\refint\ToDoList.Data.dll
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\obj\Debug\net8.0\ToDoList.Data.pdb
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\obj\Debug\net8.0\ToDoList.Data.genruntimeconfig.cache
+C:\Users\matgodoy\UNLaM\ToDoList\ToDoList.Data\obj\Debug\net8.0\ref\ToDoList.Data.dll
