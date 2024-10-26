@@ -1,0 +1,89 @@
+# Archivos de configuración de Visual Studio
+.vscode/
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Archivos de construcción de Visual Studio
+bin/
+obj/
+out/
+
+# Archivos generados por paquetes NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Archivos de publicación y empaquetado
+app.publish/
+*.publishsettings
+
+# Dependencias locales de usuario y configuraciones
+*.swp
+*.pidb
+*.suo
+*.user
+*.rsuser
+*.pdb
+*.mssln
+*.cache
+*.csproj.user
+*.dotsettings.user
+
+# Configuración de Azure, SQL y otras configuraciones locales
+appsettings.Development.json
+appsettings.Local.json
+*.sqlite
+*.mdf
+*.ldf
+
+# Configuración temporal de VS Code y extensiones
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Archivos de dependencias de NuGet generados
+project.assets.json
+project.nuget.cache
+# Archivos de logs de dotnet
+**/*.log
+
+# Archivos de configuración de depuración y monitoreo
+*.tmproj
+*.log
+
+# Archivos de dependencias de docker
+**/[Dd]ockerfile*
+**/docker-compose*
+
+# Archivos generados por Rider
+.idea/
+*.sln.iml
+*.csproj.iml
+
+# Carpeta de publicación local
+Publish/
+
+# Archivos de configuración de Git
+.git/
+
+# Archivos de respaldo de usuario
+*.bak
+*.bkp
+*.orig
+*.tmp
+
+# Archivos temporales de sistema y de usuario
+[Tt]humbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.DS_Store
+*.~undo
