@@ -1,0 +1,16 @@
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\bin\Debug\net8.0\ToDoList.Servicio.deps.json
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\bin\Debug\net8.0\ToDoList.Servicio.dll
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\bin\Debug\net8.0\ToDoList.Servicio.pdb
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\bin\Debug\net8.0\ToDoList.Data.dll
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\bin\Debug\net8.0\ToDoList.Data.pdb
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\obj\Debug\net8.0\ToDoList.Servicio.csproj.AssemblyReference.cache
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\obj\Debug\net8.0\ToDoList.Servicio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\obj\Debug\net8.0\ToDoList.Servicio.AssemblyInfoInputs.cache
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\obj\Debug\net8.0\ToDoList.Servicio.AssemblyInfo.cs
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\obj\Debug\net8.0\ToDoList.Servicio.csproj.CoreCompileInputs.cache
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\obj\Debug\net8.0\ToDoList.Servicio.sourcelink.json
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\obj\Debug\net8.0\ToDoList.35897CEB.Up2Date
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\obj\Debug\net8.0\ToDoList.Servicio.dll
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\obj\Debug\net8.0\refint\ToDoList.Servicio.dll
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\obj\Debug\net8.0\ToDoList.Servicio.pdb
+C:\Users\joaco\source\repos\ToDoList\ToDoList.Servicio\obj\Debug\net8.0\ref\ToDoList.Servicio.dll

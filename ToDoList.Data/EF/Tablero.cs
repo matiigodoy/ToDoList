@@ -9,9 +9,5 @@ public partial class Tablero
 
     public string Nombre { get; set; } = null!;
 
-    public int? Propietario { get; set; }
-
-    public virtual Usuario? PropietarioNavigation { get; set; }
-
     public virtual ICollection<Tarea> Tareas { get; set; } = new List<Tarea>();
 }

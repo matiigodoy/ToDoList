@@ -1,0 +1,80 @@
+﻿@using ToDoList.Data.EF
+@model List<ToDoList.Data.EF.Tarea>
+@{
+    ViewBag.Tittle = "Lista de Tareas";
+}
+<h2> Lista de Tareas</h2>
+
+<p>
+    @Html.ActionLink("Agregar", "AgregarTarea")
+</p>
+
+
+<div>
+    @using (Html.BeginForm("ListaTareas", "Tareas", FormMethod.Get))
+    {
+        <partial name="/Views/Shared/_pvComboEstados.cshtml" />
+        <partial name="/Views/Shared/_pvComboTableros.cshtml" />
+    <input type="submit" value="Filtrar"/>
+    }
+</div>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model => Model.First().Titulo)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.First().Descripcion)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.First().IdEstadoNavigation.Nombre)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.First().IdTableroNavigation.Nombre)
+
+        </th>
+        <th>
+            Accion
+
+        </th>
+        <th>
+            Accion
+
+        </th>
+
+    </tr>
+    @foreach (Tarea tarea in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => tarea.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => tarea.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => tarea.IdEstadoNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => tarea.IdTableroNavigation.Nombre)
+            </td>
+
+            <td>
+                <a href="/Superheroe/EliminarTarea?IdTarea=@tarea.Id&IdEstado=@ViewBag.IdEstadoSeleccionado&IdTablero=@ViewBag.IdTableroSeleccionado">Eliminar</a>
+
+            </td>
+            <td>
+                <a href="/Superheroe/CompleatarTarea?IdTarea=@tarea.Id&IdEstado=@ViewBag.IdEstadoSeleccionado&IdTablero=@ViewBag.IdTableroSeleccionado">Completar</a>
+
+            </td>
+
+
+        </tr>
+    }
+
+
+</table>

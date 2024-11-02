@@ -16,7 +16,6 @@ namespace ToDoList.Servicio
         }
         public async Task<Tarea> AgregarAsync(Tarea tarea)
         {
-            tarea.IdEstadoNavigation.Nombre = "Incompleta";
             _context.Tareas.Add(tarea);
             await _context.SaveChangesAsync();
             return tarea;
@@ -31,7 +30,7 @@ namespace ToDoList.Servicio
                 return null;
             }
 
-            tarea.IdEstadoNavigation.Nombre = "Completada";
+            tarea.IdEstado = 2;
 
             await _context.SaveChangesAsync();
             return tarea;
@@ -56,7 +55,7 @@ namespace ToDoList.Servicio
 
         public async Task<List<Tarea>> ObtenerTodasAsync()
         {
-            return await _context.Tareas.Include(t => t.IdEstadoNavigation.Nombre).OrderBy(t => t.IdEstadoNavigation.Nombre).ToListAsync();
+            return await _context.Tareas.OrderBy(t => t.IdEstadoNavigation.Nombre).ToListAsync();
 
 
         }
@@ -67,6 +66,20 @@ namespace ToDoList.Servicio
 
 
         }
+        public async Task<List<Tarea>> ObtenerPorTableroAsync(int idtablero)
+        {
+            return await _context.Tareas.Include(t => t.IdTableroNavigation.Nombre).Where(t => t.IdTableroNavigation.Id == idtablero).OrderBy(t => t.Titulo).ToListAsync();
+
+
+        }
+
+        public async Task<List<Tarea>> ObtenerPorEstadoYTableroAsync(int idestado, int idtablero)
+        {
+            return await _context.Tareas.Include(t => t.IdEstadoNavigation.Nombre).Include(t=>t.IdTableroNavigation.Nombre).Where(t => t.IdEstadoNavigation.Id == idestado && t.IdTableroNavigation.Id == idtablero).OrderBy(t => t.Titulo).ToListAsync();
+
+
+        }
+
     }
 
 
@@ -77,5 +90,7 @@ namespace ToDoList.Servicio
         Task<Tarea> EliminarAsync(int idTarea);
         Task<List<Tarea>> ObtenerTodasAsync();
         Task<List<Tarea>> ObtenerPorEstadoAsync(int idestado);
+        Task<List<Tarea>> ObtenerPorTableroAsync(int idtablero);
+        Task<List<Tarea>> ObtenerPorEstadoYTableroAsync(int idestado, int idtablero);
     }
 }

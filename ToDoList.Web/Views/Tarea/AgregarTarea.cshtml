@@ -2,20 +2,29 @@
 @{
     ViewBag.Title = "Agregar Tarea";
 }
-<h1>Agregar Superheroe</h1>
+<h1>Agregar Tarea</h1>
 
-<form asp-action="AgregarSuperheroe">
+<form asp-action="AgregarTarea">
     <div class="form-group">
-        <label asp-for="NombreSuperheroe" class="control-label"></label>
-        <input asp-for="NombreSuperheroe" class="form-control" />
-        <span asp-validation-for="NombreSuperheroe" class="text-danger"></span>
+        <label asp-for="Titulo" class="control-label"></label>
+        <input asp-for="Titulo" class="form-control" />
+        <span asp-validation-for="Titulo" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <partial name="/Views/Shared/_pvComboUniversos.cshtml" />
-        <span asp-validation-for="IdUniverso" class="text-danger"></span>
+        <label asp-for="Descripcion" class="control-label"></label>
+        <input asp-for="Descripcion" class="form-control" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <input type="submit" value="Agregar Superhéroe" class="btn btn-primary" />
+        <partial name="/Views/Shared/_pvComboEstados.cshtml" />
+        <span asp-validation-for="IdEstado" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <partial name="/Views/Shared/_pvComboTableros.cshtml" />
+        <span asp-validation-for="IdTablero" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Agregar Tarea" class="btn btn-primary" />
     </div>
 </form>
 

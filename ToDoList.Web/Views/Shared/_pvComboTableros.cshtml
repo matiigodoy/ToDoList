@@ -1,0 +1,17 @@
+﻿@using ToDoList.Data.EF
+<label class="col-md-2 control-label">Tableros</label>
+
+<select id="IdTablero" name="IdTablero">
+    <option value="0">Seleccione un Tablero</option>
+    @foreach (Tablero item in ViewBag.Tableros)
+    {
+        if (((int?)ViewBag.IdTableroSeleccionado).HasValue && ((int?)ViewBag.IdTableroSeleccionado).Value == item.Id)
+        {
+            <option value="@item.Id" selected>@item.Nombre</option>
+        }
+        else
+        {
+            <option value="@item.Id">@item.Nombre</option>
+        }
+    }
+</select>
