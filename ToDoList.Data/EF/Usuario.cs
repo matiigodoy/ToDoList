@@ -12,4 +12,9 @@ public partial class Usuario
     public string Password { get; set; } = null!;
 
     public virtual ICollection<Tablero> Tableros { get; set; } = new List<Tablero>();
+
+    public static implicit operator Usuario(int v)
+    {
+        throw new NotImplementedException();
+    }
 }

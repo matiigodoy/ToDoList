@@ -1,7 +1,16 @@
+using ToDoList.Data.EF;
+using ToDoList.Servicio;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+builder.Services.AddScoped<ToDoListDbContext>();
+builder.Services.AddScoped<IEstadosLogica, EstadosLogica>();
+builder.Services.AddScoped<ITareaLogica, TareaLogica>();
+
 
 var app = builder.Build();
 

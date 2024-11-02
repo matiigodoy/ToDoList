@@ -1,0 +1,21 @@
+﻿@model ToDoList.Data.EF.Tarea
+@{
+    ViewBag.Title = "Agregar Tarea";
+}
+<h1>Agregar Superheroe</h1>
+
+<form asp-action="AgregarSuperheroe">
+    <div class="form-group">
+        <label asp-for="NombreSuperheroe" class="control-label"></label>
+        <input asp-for="NombreSuperheroe" class="form-control" />
+        <span asp-validation-for="NombreSuperheroe" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <partial name="/Views/Shared/_pvComboUniversos.cshtml" />
+        <span asp-validation-for="IdUniverso" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Agregar Superhéroe" class="btn btn-primary" />
+    </div>
+</form>
+
