@@ -30,7 +30,7 @@ namespace ToDoList.Servicio
                 return null;
             }
 
-            tarea.IdEstado = 2;
+            tarea.IdEstado = 1;
 
             await _context.SaveChangesAsync();
             return tarea;
