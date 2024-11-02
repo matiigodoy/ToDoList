@@ -44,24 +44,27 @@ namespace ToDoList.Web.Controllers
             ViewBag.IdTableroSeleccionado = idTablero ?? 0;
             ViewBag.IdEstadoSeleccionado = idEstado ?? 0;
 
-            List<Tarea> tareas;
+            var tareas = await _tareaLogica.ObtenerTareasAsync(idEstado, idTablero);
 
-            if (idEstado.HasValue && idEstado.Value != 0 && idTablero.HasValue && idTablero.Value != 0)
-            {
-                tareas = await _tareaLogica.ObtenerPorEstadoYTableroAsync(idEstado.Value, idTablero.Value);
-            }
-            else if (idEstado.HasValue && idEstado.Value != 0)
-            {
-                tareas = await _tareaLogica.ObtenerPorEstadoAsync(idEstado.Value);
-            }
-            else if (idTablero.HasValue && idTablero.Value != 0)
-            {
-                tareas = await _tareaLogica.ObtenerPorTableroAsync(idTablero.Value);
-            }
-            else
-            {
-                tareas = await _tareaLogica.ObtenerTodasAsync();
-            }
+
+
+            /*
+                        if (idEstado.HasValue && idEstado.Value != 0 && idTablero.HasValue && idTablero.Value != 0)
+                        {
+                            tareas = await _tareaLogica.ObtenerPorEstadoYTableroAsync(idEstado.Value, idTablero.Value);
+                        }
+                        else if (idEstado.HasValue && idEstado.Value != 0)
+                        {
+                            tareas = await _tareaLogica.ObtenerPorEstadoAsync(idEstado.Value);
+                        }
+                        else if (idTablero.HasValue && idTablero.Value != 0)
+                        {
+                            tareas = await _tareaLogica.ObtenerPorTableroAsync(idTablero.Value);
+                        }
+                        else
+                        {
+                            tareas = await _tareaLogica.ObtenerTodasAsync();
+                        }*/
 
             return View(tareas);
         }
