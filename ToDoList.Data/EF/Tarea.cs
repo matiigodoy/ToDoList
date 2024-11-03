@@ -13,9 +13,11 @@ public partial class Tarea
 
     public int? IdTablero { get; set; }
 
-    public int? IdEstado { get; set; }
+    public int? IdPrioridad { get; set; }
 
-    public virtual Estado? IdEstadoNavigation { get; set; }
+    public bool Estado { get; set; }
+
+    public virtual Prioridad? IdPrioridadNavigation { get; set; }
 
     public virtual Tablero? IdTableroNavigation { get; set; }
 }

@@ -6,12 +6,14 @@ namespace ToDoList.Web.Controllers
 {
     public class TareaController : Controller
     {
-        private IEstadosLogica _estadosLogica;
+        private IPrioridadLogica _prioridadLogica;
         private ITareaLogica _tareaLogica;
         private ITableroLogica _tableroLogica;
-        public TareaController(IEstadosLogica estadosLogica, ITareaLogica tareaLogica, ITableroLogica tableroLogica)
+
+
+        public TareaController(IPrioridadLogica prioridadLogica, ITareaLogica tareaLogica, ITableroLogica tableroLogica)
         {
-            _estadosLogica = estadosLogica;
+            _prioridadLogica = prioridadLogica;
             _tareaLogica = tareaLogica;
             _tableroLogica = tableroLogica;
         }
@@ -19,32 +21,32 @@ namespace ToDoList.Web.Controllers
         public async Task<IActionResult> AgregarTarea()
         {
             ViewBag.Tableros = await _tableroLogica.ObtenerTodosAsync();
-            ViewBag.Estados = await _estadosLogica.ObtenerTodosAsync();
+            ViewBag.Prioridades = await _prioridadLogica.ObtenerTodosAsync();
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> AgregarTarea(Tarea tarea)
         {
-            if (ModelState.IsValid && tarea.IdEstado > 0 && tarea.IdTablero > 0)
+            if (ModelState.IsValid && tarea.IdPrioridad > 0 && tarea.IdTablero > 0)
             {
                 await _tareaLogica.AgregarAsync(tarea);
                 return RedirectToAction("ListaTareas");
             }
             ViewBag.Tableros = await _tableroLogica.ObtenerTodosAsync();
-            ViewBag.Estados = await _estadosLogica.ObtenerTodosAsync();
+            ViewBag.Prioridades = await _prioridadLogica.ObtenerTodosAsync();
             return View(tarea);
         }
 
 
-        public async Task<IActionResult> ListaTareas(int? idEstado, int? idTablero)
+        public async Task<IActionResult> ListaTareas(int? idPrioridad, int? idTablero)
         {
             ViewBag.Tableros = await _tableroLogica.ObtenerTodosAsync();
-            ViewBag.Estados = await _estadosLogica.ObtenerTodosAsync();
+            ViewBag.Prioridades = await _prioridadLogica.ObtenerTodosAsync();
             ViewBag.IdTableroSeleccionado = idTablero ?? 0;
-            ViewBag.IdEstadoSeleccionado = idEstado ?? 0;
+            ViewBag.IdPrioridadSeleccionado = idPrioridad ?? 0;
 
-            var tareas = await _tareaLogica.ObtenerTareasAsync(idEstado, idTablero);
+            var tareas = await _tareaLogica.ObtenerTareasAsync(idPrioridad, idTablero);
 
 
 
@@ -70,19 +72,19 @@ namespace ToDoList.Web.Controllers
         }
 
 
-        public async Task<IActionResult> EliminarTarea(int idTarea, int? idEstado, int? idUniverso)
+        public async Task<IActionResult> EliminarTarea(int idTarea, int? idPrioridad, int? idTablero)
     {
         await _tareaLogica.EliminarAsync(idTarea);
 
-        return RedirectToAction("ListaTareas", new { idEstado = idEstado , idUniverso = idUniverso });
+        return RedirectToAction("ListaTareas", new { idPrioridad = idPrioridad, idTablero = idTablero });
     }
 
 
-        public async Task<IActionResult> CompleatarTarea(int idTarea, int? idEstado, int? idUniverso)
+        public async Task<IActionResult> CompleatarTarea(int idTarea, int? idPrioridad, int? idTablero)
         {
             await _tareaLogica.CompletarAsync(idTarea);
 
-            return RedirectToAction("ListaTareas", new { idEstado = idEstado, idUniverso = idUniverso });
+            return RedirectToAction("ListaTareas", new { idPrioridad = idPrioridad, idTablero = idTablero });
         }
 
 

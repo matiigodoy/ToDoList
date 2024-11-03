@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ToDoList.Data.EF;
 
-public partial class Estado
+public partial class Prioridad
 {
     public int Id { get; set; }
 

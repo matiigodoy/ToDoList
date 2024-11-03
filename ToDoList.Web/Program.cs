@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddScoped<ToDoListDbContext>();
-builder.Services.AddScoped<IEstadosLogica, EstadosLogica>();
+builder.Services.AddScoped<IPrioridadLogica, PrioridadLogica>();
 builder.Services.AddScoped<ITareaLogica, TareaLogica>();
 builder.Services.AddScoped<ITableroLogica, TableroLogica>();
 

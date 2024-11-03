@@ -15,7 +15,7 @@ public partial class ToDoListDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Estado> Estados { get; set; }
+    public virtual DbSet<Prioridad> Prioridads { get; set; }
 
     public virtual DbSet<Tablero> Tableros { get; set; }
 
@@ -27,11 +27,11 @@ public partial class ToDoListDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Estado>(entity =>
+        modelBuilder.Entity<Prioridad>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Estado__3214EC072E69ED6B");
 
-            entity.ToTable("Estado");
+            entity.ToTable("Prioridad");
 
             entity.Property(e => e.Nombre).HasMaxLength(255);
         });
@@ -53,8 +53,8 @@ public partial class ToDoListDbContext : DbContext
 
             entity.Property(e => e.Titulo).HasMaxLength(255);
 
-            entity.HasOne(d => d.IdEstadoNavigation).WithMany(p => p.Tareas)
-                .HasForeignKey(d => d.IdEstado)
+            entity.HasOne(d => d.IdPrioridadNavigation).WithMany(p => p.Tareas)
+                .HasForeignKey(d => d.IdPrioridad)
                 .HasConstraintName("FK__Tarea__IdEstado__3B75D760");
 
             entity.HasOne(d => d.IdTableroNavigation).WithMany(p => p.Tareas)

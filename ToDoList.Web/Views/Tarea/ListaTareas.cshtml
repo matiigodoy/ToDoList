@@ -13,7 +13,7 @@
 <div>
     @using (Html.BeginForm("ListaTareas", "Tarea", FormMethod.Get))
     {
-        <partial name="/Views/Shared/_pvComboEstados.cshtml" />
+        <partial name="/Views/Shared/_pvComboPrioridad.cshtml" />
         <partial name="/Views/Shared/_pvComboTableros.cshtml" />
     <input type="submit" value="Filtrar"/>
     }
@@ -29,12 +29,17 @@
             @Html.DisplayNameFor(Model => Model.First().Descripcion)
 
         </th>
+
         <th>
-            @Html.DisplayNameFor(Model => Model.First().IdEstadoNavigation.Nombre)
+            @Html.DisplayNameFor(Model => Model.First().IdPrioridadNavigation.Nombre)
 
         </th>
         <th>
             @Html.DisplayNameFor(Model => Model.First().IdTableroNavigation.Nombre)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.First().Estado)
 
         </th>
         <th>
@@ -57,10 +62,20 @@
                 @Html.DisplayFor(modelItem => tarea.Descripcion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => tarea.IdEstadoNavigation.Nombre)
+                @Html.DisplayFor(modelItem => tarea.IdPrioridadNavigation.Nombre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => tarea.IdTableroNavigation.Nombre)
+            </td>
+            <td>
+                @if (tarea.Estado)
+                {
+                    <span>Completada</span>
+                }
+                else
+                {
+                    <span>Incompleta</span>
+                }
             </td>
 
             <td>

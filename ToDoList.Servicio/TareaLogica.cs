@@ -30,7 +30,7 @@ namespace ToDoList.Servicio
                 return null;
             }
 
-            tarea.IdEstado = 1;
+            tarea.Estado = true;
 
             await _context.SaveChangesAsync();
             return tarea;
@@ -82,15 +82,15 @@ namespace ToDoList.Servicio
 
 
 
-        public async Task<List<Tarea>> ObtenerTareasAsync(int? idEstado = null, int? idTablero = null)
+        public async Task<List<Tarea>> ObtenerTareasAsync(int? idPrioridad = null, int? idTablero = null)
         {
             // Empieza la consulta base sin filtros.
             var consulta = _context.Tareas.AsQueryable();
 
-            // Aplica el filtro de idEstado solo si tiene valor y es distinto de 0.
-            if (idEstado.HasValue && idEstado.Value != 0)
+            // Aplica el filtro de idPrioridad solo si tiene valor y es distinto de 0.
+            if (idPrioridad.HasValue && idPrioridad.Value != 0)
             {
-                consulta = consulta.Where(t => t.IdEstadoNavigation.Id == idEstado.Value);
+                consulta = consulta.Where(t => t.IdPrioridadNavigation.Id == idPrioridad.Value);
             }
 
             // Aplica el filtro de idTablero solo si tiene valor y es distinto de 0.
@@ -101,9 +101,11 @@ namespace ToDoList.Servicio
 
             // Incluye las relaciones necesarias y ordena los resultados por Titulo.
             consulta = consulta
-                .Include(t => t.IdEstadoNavigation)
-                .Include(t => t.IdTableroNavigation)
-                .OrderBy(t => t.Titulo);
+              .Include(t => t.IdPrioridadNavigation)
+              .Include(t => t.IdTableroNavigation)
+              .OrderBy(t => t.Estado)  // Primer criterio de ordenamiento
+              .ThenBy(t => t.IdPrioridadNavigation.Id);  // Segundo criterio de ordenamiento
+
 
             // Ejecuta la consulta y devuelve la lista.
             return await consulta.ToListAsync();
@@ -125,6 +127,6 @@ namespace ToDoList.Servicio
         Task<List<Tarea>> ObtenerPorEstadoYTableroAsync(int idestado, int idtablero);
         */
 
-        Task<List<Tarea>> ObtenerTareasAsync(int? idEstado = null, int? idTablero = null);
+        Task<List<Tarea>> ObtenerTareasAsync(int? idPrioridad = null, int? idTablero = null);
     }
 }
