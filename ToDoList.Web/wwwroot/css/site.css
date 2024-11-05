@@ -1,4 +1,7 @@
 html {
+    height: 100%;
+}
+html {
   font-size: 14px;
 }
 
@@ -12,11 +15,226 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
 
 body {
   margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    list-style: none;
+}
+
+.navAzure {
+    height: 70px;
+    background: rgb(20, 20, 20);
+    color: rgb(220, 220, 220);
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(20, 20, 20);
+    color: rgb(220, 220, 220);
+    text-align: center;
+}
+
+.containerAzure {
+    flex: 1;
+    background-color: rgb(4,12,28);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+}
+
+.contenedorMainTableros {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 65vh;
+    border-radius: 15px;
+    background-color: rgb(4,12,8);
+    text-align: center;
+}
+
+.contenedorMainTableros h2{
+    color: #fff;
+    font-size: 40px;
+    margin: 15px;
+}
+
+.tablerosContenedor {
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cardTablero {
+    width: 21rem;
+    height: 9.8rem;
+    background-color: #416fa1;
+    margin: 0.9rem;
+    border-radius: 15px;
+    animation: zoomIn 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardTablero p{
+    color: #fff;
+    font-size: 40px;
+}
+
+.cardAgregarTablero {
+    width: 21rem;
+    height: 9.8rem;
+    opacity: 0.2;
+    background-color: #416fa1;
+    margin: 0.9rem;
+    border-radius: 15px;
+    animation: zoomIn 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardAgregarTablero button{
+    border : none;
+    background: none;
+    font-size: 40px;
+}
+
+.cardAgregarTablero a{
+    color: #fff;
+}
+
+.formAgregarTablero{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width:60%;
+    height: 350px;
+    background-color: #2785ae;
+    border-radius: 15px;
+}
+
+.formAgregarTablero h2{
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+    padding:20px;
+}
+
+.formAgregarTablero label{
+    font-size: 30px;
+    color: #fff;
+    margin-bottom:20px;
+}
+
+.formAgregarTablero form{
+  display: flex;
+  flex-direction: column;
+  width:30%;
+  height:100%;
+  text-align: center;
+  padding: 15px;
+  justify-content:space-around;
+}
+
+.contenedorTareas {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 65vh;
+    border-radius: 15px;
+    background-color: rgb(4,12,8);
+    text-align: center;
+    color: #fff;
+}
+
+    .contenedorTareas h2 {
+        color: #fff;
+        font-size: 40px;
+        margin: 15px;
+    }
+
+    .botonAgregar{
+        align-self: center;
+        background-color: #258cfb;
+        border-radius: 15px;
+        width: 100px;
+        height: 35px;
+        font-size: 20px;
+        margin: 15px;
+    }
+
+        .botonAgregar a {
+            color: #fff;
+        }
+
+.formAgregarTarea {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60%;
+    height: 450px;
+    background-color: #2785ae;
+    border-radius: 15px;
+}
+
+    .formAgregarTarea h2 {
+        color: #fff;
+        font-size: 40px;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .formAgregarTarea label {
+        font-size: 30px;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .formAgregarTarea form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;;
+        height: 100%;
+        text-align: center;
+        padding: 15px;
+        justify-content: space-around;
+    }
+
+    .combo{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+    }
+table{
+    margin-top: 30px;
 }

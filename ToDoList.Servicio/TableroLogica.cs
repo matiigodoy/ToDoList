@@ -7,8 +7,8 @@ namespace ToDoList.Servicio
     public class TableroLogica : ITableroLogica
     {
 
-        ToDoListDbContext _context;
-        public TableroLogica(ToDoListDbContext context)
+	    AzureListDbContext _context;
+        public TableroLogica(AzureListDbContext context)
         {
 
             _context = context;
@@ -20,10 +20,18 @@ namespace ToDoList.Servicio
 
         }
 
+        public async Task<Tablero> AgregarAsync(Tablero tablero)
+        {
+            _context.Tableros.Add(tablero);
+            await _context.SaveChangesAsync();
+            return tablero;
+        }
+
     }
 
     public interface ITableroLogica
     {
         Task<List<Tablero>> ObtenerTodosAsync();
+        Task<Tablero> AgregarAsync(Tablero tablero);
     }
 }

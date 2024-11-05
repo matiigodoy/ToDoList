@@ -7,8 +7,8 @@ namespace ToDoList.Servicio
     public class PrioridadLogica : IPrioridadLogica
     {
 
-        ToDoListDbContext _context;
-        public PrioridadLogica(ToDoListDbContext context)
+	    AzureListDbContext _context;
+        public PrioridadLogica(AzureListDbContext context)
         {
 
             _context = context;

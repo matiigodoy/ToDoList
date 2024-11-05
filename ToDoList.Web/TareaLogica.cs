@@ -7,8 +7,8 @@ namespace ToDoList.Servicio
     public class TareaLogica:ITareaLogica
     {
 
-        AzureListDbContext _context;
-        public TareaLogica(AzureListDbContext context)
+        ToDoListDbContext _context;
+        public TareaLogica(ToDoListDbContext context)
         {
 
             _context = context;
@@ -82,7 +82,7 @@ namespace ToDoList.Servicio
 
 
 
-        public async Task<List<Tarea>> ObtenerTareasAsync(int? idTablero = null, int? idPrioridad = null)
+        public async Task<List<Tarea>> ObtenerTareasAsync(int? idPrioridad = null, int? idTablero = null)
         {
             // Empieza la consulta base sin filtros.
             var consulta = _context.Tareas.AsQueryable();
@@ -127,6 +127,6 @@ namespace ToDoList.Servicio
         Task<List<Tarea>> ObtenerPorEstadoYTableroAsync(int idestado, int idtablero);
         */
 
-        Task<List<Tarea>> ObtenerTareasAsync(int? idTablero = null, int? idPrioridad = null);
+        Task<List<Tarea>> ObtenerTareasAsync(int? idPrioridad = null, int? idTablero = null);
     }
 }

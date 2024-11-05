@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joaco\\source\\repos\\ToDoList\\ToDoList.Data\\ToDoList.Data.csproj": {}
+    "C:\\Users\\joanc\\Documents\\GitHub\\ToDoList\\ToDoList.Data\\ToDoList.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joaco\\source\\repos\\ToDoList\\ToDoList.Data\\ToDoList.Data.csproj": {
+    "C:\\Users\\joanc\\Documents\\GitHub\\ToDoList\\ToDoList.Data\\ToDoList.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joaco\\source\\repos\\ToDoList\\ToDoList.Data\\ToDoList.Data.csproj",
+        "projectUniqueName": "C:\\Users\\joanc\\Documents\\GitHub\\ToDoList\\ToDoList.Data\\ToDoList.Data.csproj",
         "projectName": "ToDoList.Data",
-        "projectPath": "C:\\Users\\joaco\\source\\repos\\ToDoList\\ToDoList.Data\\ToDoList.Data.csproj",
-        "packagesPath": "C:\\Users\\joaco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joaco\\source\\repos\\ToDoList\\ToDoList.Data\\obj\\",
+        "projectPath": "C:\\Users\\joanc\\Documents\\GitHub\\ToDoList\\ToDoList.Data\\ToDoList.Data.csproj",
+        "packagesPath": "C:\\Users\\joanc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joanc\\Documents\\GitHub\\ToDoList\\ToDoList.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\joaco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\joanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

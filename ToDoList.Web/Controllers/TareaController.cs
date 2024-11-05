@@ -18,37 +18,37 @@ namespace ToDoList.Web.Controllers
             _tableroLogica = tableroLogica;
         }
 
-        public async Task<IActionResult> AgregarTarea()
+        public async Task<IActionResult> AgregarTarea(int idTablero)
         {
-            ViewBag.Tableros = await _tableroLogica.ObtenerTodosAsync();
+	        ViewBag.TableroId = idTablero;
             ViewBag.Prioridades = await _prioridadLogica.ObtenerTodosAsync();
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> AgregarTarea(Tarea tarea)
+        public async Task<IActionResult> AgregarTarea(Tarea tarea, int idTablero)
         {
-            if (ModelState.IsValid && tarea.IdPrioridad > 0 && tarea.IdTablero > 0)
+            if (ModelState.IsValid && tarea.IdPrioridad > 0)
             {
+	            tarea.IdTablero = idTablero;
                 await _tareaLogica.AgregarAsync(tarea);
-                return RedirectToAction("ListaTareas");
+                return RedirectToAction("ListaTareas" , new { idTablero });
             }
-            ViewBag.Tableros = await _tableroLogica.ObtenerTodosAsync();
             ViewBag.Prioridades = await _prioridadLogica.ObtenerTodosAsync();
             return View(tarea);
         }
 
 
-        public async Task<IActionResult> ListaTareas(int? idPrioridad, int? idTablero)
+        public async Task<IActionResult> ListaTareas(int idTablero, int? idPrioridad = null)
         {
-            ViewBag.Tableros = await _tableroLogica.ObtenerTodosAsync();
             ViewBag.Prioridades = await _prioridadLogica.ObtenerTodosAsync();
-            ViewBag.IdTableroSeleccionado = idTablero ?? 0;
-            ViewBag.IdPrioridadSeleccionado = idPrioridad ?? 0;
+            
+            var tareas = await _tareaLogica.ObtenerTareasAsync(idTablero);
 
-            var tareas = await _tareaLogica.ObtenerTareasAsync(idPrioridad, idTablero);
-
-
+            if (idPrioridad.HasValue && idPrioridad != 0)
+            {
+                tareas = tareas.Where(t => t.IdPrioridad == idPrioridad).ToList();
+			}
 
             /*
                         if (idEstado.HasValue && idEstado.Value != 0 && idTablero.HasValue && idTablero.Value != 0)
@@ -67,8 +67,9 @@ namespace ToDoList.Web.Controllers
                         {
                             tareas = await _tareaLogica.ObtenerTodasAsync();
                         }*/
-
-            return View(tareas);
+            ViewBag.TableroId = idTablero;
+            ViewBag.PrioridadSeleccionada = idPrioridad;
+			return View(tareas);
         }
 
 

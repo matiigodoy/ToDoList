@@ -1,6 +1,6 @@
 ﻿@using ToDoList.Data.EF
-<label class="col-md-2 control-label">Prioridades</label>
-
+<label class="col-md-2 control-label">Prioridad</label>
+<input type="hidden" name="idTablero" value="@ViewBag.TableroId" />
 <select id="IdPrioridad" name="IdPrioridad">
     <option value="0">Seleccione una Prioridad</option>
     @foreach (Prioridad item in ViewBag.Prioridades)

@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-builder.Services.AddScoped<ToDoListDbContext>();
+builder.Services.AddScoped<AzureListDbContext>();
 builder.Services.AddScoped<IPrioridadLogica, PrioridadLogica>();
 builder.Services.AddScoped<ITareaLogica, TareaLogica>();
 builder.Services.AddScoped<ITableroLogica, TableroLogica>();
@@ -31,6 +31,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Tablero}/{action=MisTableros}/{id?}");
 
 app.Run();
