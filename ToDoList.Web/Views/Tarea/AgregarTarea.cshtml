@@ -2,30 +2,100 @@
 @{
     ViewBag.Title = "Agregar Tarea";
 }
+<style>
+    /* Main form container styling */
+    .formAgregarTarea {
+        max-width: 600px;
+        background-color: #f3f9ff; /* Light Azure background */
+        padding: 25px;
+        margin: 40px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+        color: #2b579a;
+    }
+
+    /* Heading styling */
+    .formAgregarTarea h2 {
+        text-align: center;
+        color: #0078d4; /* Azure blue */
+        margin-bottom: 20px;
+    }
+
+    /* Form group styling */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #2b579a;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #cfd8dc;
+        font-size: 16px;
+    }
+
+    .form-control:focus {
+        border-color: #0078d4;
+        box-shadow: 0 0 5px rgba(0, 120, 212, 0.5);
+    }
+
+    /* Dropdown combo styling */
+    .combo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Submit button styling */
+    .btn-primary {
+        width: 100%;
+        padding: 10px;
+        background-color: #0078d4;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #005a9e;
+    }
+
+    /* Error messages styling */
+    .text-danger {
+        color: #dc3545;
+        font-size: 14px;
+    }
+</style>
 
 <div class="formAgregarTarea">
-	<h2>Agregar Tarea</h2>
-
-	<form asp-action="AgregarTarea" method="post">
-		<input type="hidden" name="idTablero" value="@ViewBag.TableroId" />
-		<div class="form-group">
-			<label asp-for="Titulo" class="control-label"></label>
-			<input asp-for="Titulo" class="form-control"/>
-			<span asp-validation-for="Titulo" class="text-danger"></span>
-		</div>
-		<div class="form-group">
-			<label asp-for="Descripcion" class="control-label"></label>
-			<input asp-for="Descripcion" class="form-control"/>
-			<span asp-validation-for="Descripcion" class="text-danger"></span>
-		</div>
-		<div class="form-group combo">
-			<partial name="/Views/Shared/_pvComboPrioridad.cshtml"/>
-			<span asp-validation-for="IdPrioridad" class="text-danger"></span>
-		</div>
-		<div class="form-group ">
-			<input type="submit" value="Agregar Tarea" class="btn btn-primary"/>
-		</div>
-	</form>
-
+    <h2>Agregar Tarea</h2>
+    <form asp-action="AgregarTarea" method="post">
+        <input type="hidden" name="idTablero" value="@ViewBag.TableroId" />
+        <div class="form-group">
+            <label asp-for="Titulo" class="control-label"></label>
+            <input asp-for="Titulo" class="form-control" />
+            <span asp-validation-for="Titulo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Descripcion" class="control-label"></label>
+            <input asp-for="Descripcion" class="form-control" />
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+        <div class="form-group combo">
+            <partial name="/Views/Shared/_pvComboPrioridad.cshtml" />
+            <span asp-validation-for="IdPrioridad" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Agregar Tarea" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
+
 

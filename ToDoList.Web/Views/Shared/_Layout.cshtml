@@ -6,26 +6,85 @@
     <title>@ViewData["Title"] - Azure List 2024</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        /* Header styling */
+        .navAzure {
+            background-color: #0078d4; /* Azure blue */
+            color: #ffffff;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navAzure a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        .navAzure a:hover {
+            color: #00bcf2; /* lighter Azure blue on hover */
+            transition: color 0.3s;
+        }
+
+        /* Main container styling */
+        .containerAzure {
+            padding: 30px;
+            background-color: #f3f9ff; /* light Azure-inspired background */
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #0078d4;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.9em;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer .container {
+            color: #e1effe; /* lighter text color for footer */
+        }
+
+        /* Button and link styling */
+        a, button {
+            transition: all 0.3s ease;
+        }
+        a:hover, button:hover {
+            transform: scale(1.05);
+        }
+
+     
+    </style>
 </head>
 <body>
 <header>
-	<nav class="navAzure">
-		<a asp-controller="Tablero" asp-action="MisTableros">
-			<h1>Azure List 2024</h1>
-		</a>
-	</nav>
+    <nav class="navAzure">
+        <a asp-controller="Tablero" asp-action="MisTableros">
+            <h1>Azure List 2024</h1>
+        </a>
+    </nav>
 </header>
+
 <main role="main" class="containerAzure">
-	@RenderBody()
-	</main>
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            Programacion Web III - Dominguez Agustin - Godoy Matias - Lopez Cabanillas Ignacio - Oviedo Joaquin - Paiva Joaquin - Tucci Santiago
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @RenderBody()
+</main>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        Programación Web III - Dominguez Agustin - Godoy Matias - Lopez Cabanillas Ignacio - Oviedo Joaquin - Paiva Joaquin - Tucci Santiago
+    </div>
+</footer>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

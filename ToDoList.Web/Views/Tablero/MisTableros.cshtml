@@ -1,24 +1,81 @@
 ﻿@using ToDoList.Data.EF
 @model List<ToDoList.Data.EF.Tablero>
 @{
-	ViewData["Title"] = "Tableros";
+    ViewData["Title"] = "Tableros";
 }
-<div class="contenedorMainTableros">
-	<h2>Mis tableros</h2>
+<style>
+    /* Main container styling */
+    .contenedorMainTableros {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f3f9ff; /* light Azure-inspired background */
+        color: #2b579a; /* Azure primary text color */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        color: #0078d4; /* darker Azure blue for heading */
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    .tablerosContenedor {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    /* Card styling */
+    .cardTablero, .cardAgregarTablero button {
+        width: 200px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0078d4; /* Azure blue */
+        color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        font-size: 1.2em;
+        text-align: center;
+    }
+    .cardTablero:hover, .cardAgregarTablero button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    .cardTablero p {
+        margin: 0;
+    }
+    .cardAgregarTablero button {
+        background-color: #00bcf2; /* lighter Azure accent */
+        color: #ffffff;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5em;
+        font-weight: bold;
+        padding: 0;
+    }
+    .cardAgregarTablero button:hover {
+        background-color: #0078d4; /* same as card color */
+    }
+</style>
 
-	<div class="tablerosContenedor">
-		@foreach (Tablero tablero in Model)
-		{
-			<a href="@Url.Action("ListaTareas", "Tarea", new {idTablero = tablero.Id})">
-				<div class="cardTablero">
-					<p>@Html.DisplayFor(ModelItem=>tablero.Nombre)</p>
-				</div>
-			</a>
-		}
-		<div class="cardAgregarTablero">
-			<button>
-				@Html.ActionLink("+","AgregarTablero")
-			</button>
-		</div>
-	</div>
+<div class="contenedorMainTableros">
+    <h2>Mis tableros</h2>
+    <div class="tablerosContenedor">
+        @foreach (Tablero tablero in Model)
+        {
+            <a href="@Url.Action("ListaTareas", "Tarea", new { idTablero = tablero.Id })">
+                <div class="cardTablero">
+                    <p>@Html.DisplayFor(ModelItem => tablero.Nombre)</p>
+                </div>
+            </a>
+        }
+        <div class="cardAgregarTablero">
+            <button>
+                @Html.ActionLink("+", "AgregarTablero", null, new { @style = "color: white; text-decoration: none;" })
+            </button>
+        </div>
+    </div>
 </div>
