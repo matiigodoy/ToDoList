@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ToDoList.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33a08711652f9a97f743f57f14e01418bdabcbab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7469fb0797dc9a928a136d18ecb80955d9ba33c1")]
 [assembly: System.Reflection.AssemblyProductAttribute("ToDoList.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ToDoList.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
