@@ -1,7 +1,16 @@
+using ToDoList.Data.EF;
+using ToDoList.Servicio;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+builder.Services.AddScoped<AzureListDbContext>();
+builder.Services.AddScoped<IPrioridadLogica, PrioridadLogica>();
+builder.Services.AddScoped<ITareaLogica, TareaLogica>();
+builder.Services.AddScoped<ITableroLogica, TableroLogica>();
 
 var app = builder.Build();
 
@@ -22,6 +31,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=User}/{action=Login}/{id?}");
+    pattern: "{controller=Tablero}/{action=MisTableros}/{id?}");
 
 app.Run();
