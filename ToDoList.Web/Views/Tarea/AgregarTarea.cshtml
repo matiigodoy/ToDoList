@@ -1,0 +1,31 @@
+﻿@model ToDoList.Data.EF.Tarea
+@{
+    ViewBag.Title = "Agregar Tarea";
+}
+
+<div class="formAgregarTarea">
+	<h2>Agregar Tarea</h2>
+
+	<form asp-action="AgregarTarea" method="post">
+		<input type="hidden" name="idTablero" value="@ViewBag.TableroId" />
+		<div class="form-group">
+			<label asp-for="Titulo" class="control-label"></label>
+			<input asp-for="Titulo" class="form-control"/>
+			<span asp-validation-for="Titulo" class="text-danger"></span>
+		</div>
+		<div class="form-group">
+			<label asp-for="Descripcion" class="control-label"></label>
+			<input asp-for="Descripcion" class="form-control"/>
+			<span asp-validation-for="Descripcion" class="text-danger"></span>
+		</div>
+		<div class="form-group combo">
+			<partial name="/Views/Shared/_pvComboPrioridad.cshtml"/>
+			<span asp-validation-for="IdPrioridad" class="text-danger"></span>
+		</div>
+		<div class="form-group ">
+			<input type="submit" value="Agregar Tarea" class="btn btn-primary"/>
+		</div>
+	</form>
+
+</div>
+

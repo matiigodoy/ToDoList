@@ -1,0 +1,91 @@
+﻿@using ToDoList.Data.EF
+@model List<ToDoList.Data.EF.Tarea>
+@{
+    ViewBag.Tittle = "Lista de Tareas";
+}
+<div class="contenedorTareas">
+
+
+<h2> Lista de Tareas</h2>
+
+<div class="botonAgregar">
+    @Html.ActionLink("Agregar", "AgregarTarea", "Tarea", new { idTablero = @ViewBag.TableroId }, null)
+</div>
+
+
+<div class="comboPrioridad">
+    @using (Html.BeginForm("ListaTareas", "Tarea", new { idTablero = @ViewBag.TableroId }
+   , FormMethod.Get))
+    {
+        <partial name="/Views/Shared/_pvComboPrioridad.cshtml" />
+    <input type="submit" value="Filtrar"/>
+    }
+</div>
+
+<table>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(Model => Model.First().Titulo)
+
+		</th>
+		<th>
+			@Html.DisplayNameFor(Model => Model.First().Descripcion)
+
+		</th>
+
+		<th>
+			Prioridad
+		</th>
+		<th>
+			@Html.DisplayNameFor(Model => Model.First().Estado)
+
+		</th>
+		<th>
+			Accion
+
+		</th>
+		<th>
+			Accion
+
+		</th>
+
+	</tr>
+	@foreach (Tarea tarea in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => tarea.Titulo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => tarea.Descripcion)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => tarea.IdPrioridadNavigation.Nombre)
+			</td>
+			<td>
+				@if (tarea.Estado)
+				{
+					<span>Completada</span>
+				}
+				else
+				{
+					<span>Incompleta</span>
+				}
+			</td>
+
+			<td>
+				<a href="/Tarea/EliminarTarea?IdTarea=@tarea.Id&IdEstado=@ViewBag.IdEstadoSeleccionado&IdTablero=@ViewBag.IdTablero">Eliminar</a>
+
+			</td>
+			<td>
+				<a href="/Tarea/CompleatarTarea?IdTarea=@tarea.Id&IdEstado=@ViewBag.IdEstadoSeleccionado&IdTablero=@ViewBag.IdTablero">Completar</a>
+
+			</td>
+
+
+		</tr>
+	}
+
+
+</table>
+</div>

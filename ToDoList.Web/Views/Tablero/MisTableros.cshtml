@@ -1,0 +1,24 @@
+﻿@using ToDoList.Data.EF
+@model List<ToDoList.Data.EF.Tablero>
+@{
+	ViewData["Title"] = "Tableros";
+}
+<div class="contenedorMainTableros">
+	<h2>Mis tableros</h2>
+
+	<div class="tablerosContenedor">
+		@foreach (Tablero tablero in Model)
+		{
+			<a href="@Url.Action("ListaTareas", "Tarea", new {idTablero = tablero.Id})">
+				<div class="cardTablero">
+					<p>@Html.DisplayFor(ModelItem=>tablero.Nombre)</p>
+				</div>
+			</a>
+		}
+		<div class="cardAgregarTablero">
+			<button>
+				@Html.ActionLink("+","AgregarTablero")
+			</button>
+		</div>
+	</div>
+</div>
