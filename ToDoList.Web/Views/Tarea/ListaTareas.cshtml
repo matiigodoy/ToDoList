@@ -3,89 +3,175 @@
 @{
     ViewBag.Tittle = "Lista de Tareas";
 }
-<div class="contenedorTareas">
-
-
-<h2> Lista de Tareas</h2>
-
-<div class="botonAgregar">
-    @Html.ActionLink("Agregar", "AgregarTarea", "Tarea", new { idTablero = @ViewBag.TableroId }, null)
-</div>
-
-
-<div class="comboPrioridad">
-    @using (Html.BeginForm("ListaTareas", "Tarea", new { idTablero = @ViewBag.TableroId }
-   , FormMethod.Get))
-    {
-        <partial name="/Views/Shared/_pvComboPrioridad.cshtml" />
-    <input type="submit" value="Filtrar"/>
+<style>
+    /* Main container styling */
+    .contenedorTareas {
+        background-color: #f3f9ff; /* Light Azure background */
+        padding: 20px;
+        max-width: 900px;
+        margin: 40px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+        color: #2b579a;
     }
-</div>
 
-<table>
-	<tr>
-		<th>
-			@Html.DisplayNameFor(Model => Model.First().Titulo)
+    /* Heading styling */
+    .contenedorTareas h2 {
+        text-align: center;
+        color: #0078d4;
+        margin-bottom: 20px;
+    }
 
-		</th>
-		<th>
-			@Html.DisplayNameFor(Model => Model.First().Descripcion)
+    /* Button container styling */
+    .botonAgregar {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-		</th>
+    .botonAgregar a {
+        background-color: #0078d4; /* Azure blue */
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
 
-		<th>
-			Prioridad
-		</th>
-		<th>
-			@Html.DisplayNameFor(Model => Model.First().Estado)
+    .botonAgregar a:hover {
+        background-color: #005a9e;
+    }
 
-		</th>
-		<th>
-			Accion
+    /* Filter dropdown styling */
+    .comboPrioridad {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
 
-		</th>
-		<th>
-			Accion
+    .comboPrioridad form {
+        display: flex;
+        gap: 10px;
+    }
 
-		</th>
+    .comboPrioridad input[type="submit"] {
+        background-color: #0078d4;
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        cursor: pointer;
+    }
 
-	</tr>
-	@foreach (Tarea tarea in Model)
-	{
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => tarea.Titulo)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => tarea.Descripcion)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => tarea.IdPrioridadNavigation.Nombre)
-			</td>
-			<td>
-				@if (tarea.Estado)
-				{
-					<span>Completada</span>
-				}
-				else
-				{
-					<span>Incompleta</span>
-				}
-			</td>
+    .comboPrioridad input[type="submit"]:hover {
+        background-color: #005a9e;
+    }
 
-			<td>
-				<a href="/Tarea/EliminarTarea?IdTarea=@tarea.Id&IdEstado=@ViewBag.IdEstadoSeleccionado&IdTablero=@ViewBag.IdTablero">Eliminar</a>
+    /* Table styling */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
 
-			</td>
-			<td>
-				<a href="/Tarea/CompleatarTarea?IdTarea=@tarea.Id&IdEstado=@ViewBag.IdEstadoSeleccionado&IdTablero=@ViewBag.IdTablero">Completar</a>
+    table th, table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
 
-			</td>
+    table th {
+        background-color: #0078d4;
+        color: white;
+        font-weight: bold;
+    }
 
+    table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
 
-		</tr>
-	}
+    table tr:hover {
+        background-color: #e0efff;
+    }
 
+    /* Action links styling */
+    a {
+        color: #0078d4;
+        text-decoration: none;
+    }
 
-</table>
+    a:hover {
+        text-decoration: underline;
+        color: #005a9e;
+    }
+
+    /* Status badge styling */
+    .contenedorTareas .status {
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .status-complete {
+        color: #ffffff;
+        background-color: #28a745;
+    }
+
+    .status-incomplete {
+        color: #ffffff;
+        background-color: #dc3545;
+    }
+</style>
+
+<div class="contenedorTareas">
+    <h2>Lista de Tareas</h2>
+
+    <div class="botonAgregar">
+        @Html.ActionLink("Agregar", "AgregarTarea", "Tarea", new { idTablero = @ViewBag.TableroId }, null)
+    </div>
+
+    <div class="comboPrioridad">
+        @using (Html.BeginForm("ListaTareas", "Tarea", new { idTablero = @ViewBag.TableroId }, FormMethod.Get))
+        {
+            <partial name="/Views/Shared/_pvComboPrioridad.cshtml" />
+            <input type="submit" value="Filtrar" />
+        }
+    </div>
+
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(Model => Model.First().Titulo)</th>
+            <th>@Html.DisplayNameFor(Model => Model.First().Descripcion)</th>
+            <th>Prioridad</th>
+            <th>@Html.DisplayNameFor(Model => Model.First().Estado)</th>
+            <th>Acción</th>
+            <th>Acción</th>
+        </tr>
+        @foreach (Tarea tarea in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => tarea.Titulo)</td>
+                <td>@Html.DisplayFor(modelItem => tarea.Descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => tarea.IdPrioridadNavigation.Nombre)</td>
+                <td>
+                    @if (tarea.Estado)
+                    {
+                        <span class="status status-complete">Completada</span>
+                    }
+                    else
+                    {
+                        <span class="status status-incomplete">Incompleta</span>
+                    }
+                </td>
+                <td>
+                    <a href="/Tarea/EliminarTarea?IdTarea=@tarea.Id&IdEstado=@ViewBag.IdEstadoSeleccionado&IdTablero=@ViewBag.IdTablero">Eliminar</a>
+                </td>
+                <td>
+                    <a href="/Tarea/CompleatarTarea?IdTarea=@tarea.Id&IdEstado=@ViewBag.IdEstadoSeleccionado&IdTablero=@ViewBag.IdTablero">Completar</a>
+                </td>
+            </tr>
+        }
+    </table>
 </div>
