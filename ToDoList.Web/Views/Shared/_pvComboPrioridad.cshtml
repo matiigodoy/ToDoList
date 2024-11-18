@@ -1,0 +1,17 @@
+﻿@using ToDoList.Data.EF
+<label class="col-md-2 control-label">Prioridad</label>
+<input type="hidden" name="idTablero" value="@ViewBag.TableroId" />
+<select id="IdPrioridad" name="IdPrioridad">
+    <option value="0">Seleccione una Prioridad</option>
+    @foreach (Prioridad item in ViewBag.Prioridades)
+    {
+        if (((int?)ViewBag.IdPrioridadSeleccionado).HasValue && ((int?)ViewBag.IdPrioridadSeleccionado).Value == item.Id)
+        {
+            <option value="@item.Id" selected>@item.Nombre</option>
+        }
+        else
+        {
+            <option value="@item.Id">@item.Nombre</option>
+        }
+    }
+</select>
