@@ -33,5 +33,12 @@ namespace ToDoList.Web.Controllers
             await _tableroLogica.AgregarAsync(tablero);
             return RedirectToAction("MisTableros");
         }
+
+        public async Task<IActionResult> EliminarTablero(int idTablero)
+        {
+            await _tableroLogica.EliminarAsync(idTablero);
+
+            return RedirectToAction("MisTableros");
+        }
     }
 }

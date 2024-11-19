@@ -30,8 +30,9 @@
         width: 200px;
         height: 150px;
         display: flex;
+	    flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         background-color: #0078d4; /* Azure blue */
         color: #ffffff;
         border-radius: 8px;
@@ -46,6 +47,11 @@
     }
     .cardTablero p {
         margin: 0;
+    }
+
+    .cardTablero a {
+	    text-decoration: none;
+	    color: #fff;
     }
     .cardAgregarTablero button {
         background-color: #00bcf2; /* lighter Azure accent */
@@ -68,7 +74,8 @@
         {
             <a href="@Url.Action("ListaTareas", "Tarea", new { idTablero = tablero.Id })">
                 <div class="cardTablero">
-                    <p>@Html.DisplayFor(ModelItem => tablero.Nombre)</p>
+	                <p>@Html.DisplayFor(ModelItem => tablero.Nombre)</p>
+                    <a href="/Tablero/EliminarTablero?idTablero=@tablero.Id">🗑️</a>
                 </div>
             </a>
         }

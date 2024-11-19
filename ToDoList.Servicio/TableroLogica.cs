@@ -27,11 +27,27 @@ namespace ToDoList.Servicio
             return tablero;
         }
 
+        public async Task<Tablero> EliminarAsync(int idTablero)
+        {
+
+            var tablero = await _context.Tableros.FindAsync(idTablero);
+            if (tablero == null)
+            {
+                return null;
+            }
+
+            _context.Tableros.Remove(tablero);
+
+            await _context.SaveChangesAsync();
+            return tablero;
+        }
+
     }
 
     public interface ITableroLogica
     {
         Task<List<Tablero>> ObtenerTodosAsync();
         Task<Tablero> AgregarAsync(Tablero tablero);
+        Task<Tablero> EliminarAsync(int idTablero);
     }
 }
